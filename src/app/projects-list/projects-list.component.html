@@ -1,0 +1,15 @@
+@for (project of projects; track projects;let index=$index;let count = $count;)
+{
+<p>courses count : {{ count }}</p>
+
+<app-project
+  [class.firstProject]="$first"
+  [class.lastProject]="$last"
+  [class.even]="$even"
+  [class.odd]="$odd"
+  (viewProjectEvent)="onProjectClick($event)"
+  [project]="project"
+  [index]="index + 1"
+/>
+
+}

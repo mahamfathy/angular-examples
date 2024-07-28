@@ -1,0 +1,10 @@
+<h1>number {{ index }}</h1>
+<h1>{{ project.title }}</h1>
+<p>{{ project.description }}</p>
+<img [src]="project.imgUrl" alt="" />
+<button
+  (click)="viewCourse()"
+  style="background-color: rgb(134, 125, 180); display: block"
+>
+  View Course
+</button>
