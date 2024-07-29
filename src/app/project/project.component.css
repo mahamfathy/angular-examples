@@ -1,1 +1,11 @@
-/*# sourceMappingURL=project.component.css.map */
+.paragraph {
+  color: red;
+}
+
+.paragBorder {
+  border: 2px black solid;
+}
+
+.paragSize {
+  font-size: 50px;
+}/*# sourceMappingURL=project.component.css.map */

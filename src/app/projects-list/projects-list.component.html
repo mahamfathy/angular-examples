@@ -1,5 +1,5 @@
-@for (project of projects; track projects;let index=$index;let count = $count;)
-{
+@for (project of projects; track project.id;let index=$index;let count =
+$count;) {
 <p>courses count : {{ count }}</p>
 
 <app-project
