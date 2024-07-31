@@ -1,7 +1,6 @@
 @for (project of projects; track project.id;let index=$index;let count =
 $count;) {
 <p>courses count : {{ count }}</p>
-
 <app-project
   [class.firstProject]="$first"
   [class.lastProject]="$last"
@@ -10,6 +9,11 @@ $count;) {
   (viewProjectEvent)="onProjectClick($event)"
   [project]="project"
   [index]="index + 1"
-/>
+  [title]="project.title"
+>
+  Testttttt
+</app-project>
+} @for (project of projects[2] | keyvalue; track project) {
+<div>{{ project.key }} : {{ project.value }}</div>
 
 }

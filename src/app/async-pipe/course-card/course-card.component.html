@@ -1,0 +1,19 @@
+<div class="course-card rounded text-center my-2 position-relative overflow-hidden">
+  <div class="fw-bold px-3 py-3 text-truncate d-flex justify-content-between align-items-center">
+    <div class="course-title">
+      {{course().name}}
+    </div>
+  </div>
+  <div>
+    <img [src]="attachmentUrl + course().imageUrl + '?alt=media'" alt="course_image" class="w-100 course_image" />
+  </div>
+  <div class="bg-card-footer">
+    <div class="px-2 pt-2 pb-4 d-flex justify-content-center align-items-center">
+      <button class="btn btn-outline-danger" (click)="viewCourse()">
+        <i class="fa-brands fa-youtube"></i>
+        {{course().lessons.length}}
+        lessons
+      </button>
+    </div>
+  </div>
+</div>

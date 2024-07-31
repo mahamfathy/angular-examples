@@ -1,10 +1,34 @@
-<h1 [ngClass]="[getCssClass(), 'paragSize']">number {{ index }}</h1>
+<div>
+  <ng-content />
+</div>
+<h1 style="color: aqua">{{ title }}</h1>
+<h2 [ngClass]="[getCssClass(), 'paragSize']">number {{ index }}</h2>
 <h1>{{ project.title }}</h1>
 <div *ngIf="project.description; else noDescription">
   <p [ngClass]="['paragraph', 'paragBorder']">
     {{ project.description }}
   </p>
+
+  <p>
+    {{ project.description | slice : 0 : 7 }}
+  </p>
+  <p>
+    {{ project.description | slice : 7 }}
+  </p>
+  <p>
+    {{ project.description | slice : -7 }}
+  </p>
 </div>
+<h5>{{ date | date : "dd/MM/yyyy" }}</h5>
+<h5>{{ date | date : "MM/yyyy" }}</h5>
+<h5>{{ date | date : "fullDate" }}</h5>
+<h5>{{ date | date : "fullTime" }}</h5>
+<h5>{{ date | date : "short" }}</h5>
+<h3>{{ amount | number : "3.1-5" }}</h3>
+<h3>{{ amount | currency : "EGP" : "symbol-narrow" }}</h3>
+<h3>{{ amount | currency : "EGP" : "code" }}</h3>
+<h3>{{ amount | currency : "EGP" : "symbol" }}</h3>
+<h3>{{ project | json }}</h3>
 
 @if(project.imgUrl) {
 <img [src]="project.imgUrl" alt="" />
@@ -18,4 +42,8 @@
 </button>
 <ng-template #noDescription>
   <p [ngClass]="{ paragraph: false, paragSize: true }">NO DISCRIPTION ADDED</p>
+  <h1 [ngClass]="'paragSize'">{{ project.title | uppercase }}</h1>
+  <h1 [ngClass]="'paragSize'">{{ project.title | lowercase }}</h1>
+
+  <h1 [ngClass]="'paragSize'">{{ project.title | titlecase }}</h1>
 </ng-template>

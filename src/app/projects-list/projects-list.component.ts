@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
 import { Project } from '../project';
 import { ProjectComponent } from '../project/project.component';
 
 @Component({
   selector: 'app-projects-list',
   standalone: true,
-  imports: [ProjectComponent],
+  imports: [ProjectComponent, CommonModule],
   templateUrl: './projects-list.component.html',
   styleUrl: './projects-list.component.sass',
 })
-export class ProjectsListComponent {
+export class ProjectsListComponent implements OnInit {
   public projects: Array<Project> = [
     {
       id: 1,
@@ -32,5 +34,10 @@ export class ProjectsListComponent {
   ];
   onProjectClick(project: Project): void {
     alert(project.title);
+  }
+  ngOnInit(): void {
+    timer(3000).subscribe(() => {
+      this.projects[0].title = 'welcome to courses';
+    });
   }
 }

@@ -1,0 +1,50 @@
+.course-card {
+  box-shadow: 0 1px 16px 0 rgba(0, 0, 0, .2), 0 2px 8px 0 rgba(0, 0, 0, .14), 0 4px 8px -1px rgba(0, 0, 0, .12);
+}
+
+.course-title {
+  font-size: 1.125rem;
+}
+
+.course-description {
+  user-select: none;
+}
+
+.course-category-badge {
+  padding: 5px 45px;
+  transform: rotateZ(-45deg);
+  position: absolute;
+  text-align: center;
+  width: 200px;
+  left: -55px;
+  right: -55px;
+  top: 25px;
+  color: #ffffff;
+  font-size: 0.938rem;
+  z-index: 1;
+}
+
+.bg-card-footer {
+  background-color: #ecefef;
+}
+
+.heart-icon {
+  background-color: #e7d6d6;
+  width: 35px;
+  height: 35px;
+}
+
+
+.btn-outline-red {
+  border: 1px solid red;
+  color: red;
+
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.138);
+  }
+}
+
+i {
+  font-size: 1rem;
+  cursor: pointer;
+}
