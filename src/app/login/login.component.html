@@ -1,15 +1,45 @@
-<form action="">
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
   <div class="example-container" style="margin-top: 70px">
-    <mat-form-field>
+    <mat-form-field class="email-control">
       <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com" required />
+      <input
+        matInput
+        placeholder="pat@example.com"
+        required
+        ngModel
+        #email="ngModel"
+        minlength="5"
+        name="email"
+        email
+        pattern=".*@.*\.com"
+      />
+      <mat-icon matSuffix>email</mat-icon>
+      @if (email.errors?.['required'] ) {
+      <mat-error> Email is required </mat-error>
+      } @else if ( email.errors?.['minlength']) {
+      <mat-error> Email must be at least 10 characters long </mat-error>
+      }@else if(email.errors?.['email']){
+      <mat-error> Email is not valid </mat-error>
+      }@else if(email.errors?.['pattern']){
+      <mat-error> Email must end with .com </mat-error>
+      }
     </mat-form-field>
   </div>
-
-  <div class="example-container">
+  <!-- @if (email.errors!['required'] && email.touched) {
+  <p>email is requied</p>
+  } -->
+  <div class="example-container" style="margin: 50px 0">
     <mat-form-field appearance="fill">
       <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide() ? 'password' : 'text'" />
+      <input
+        matInput
+        [type]="hide() ? 'password' : 'text'"
+        #password="ngModel"
+        ngModel
+        name="password"
+        required
+        minlength="6"
+      />
       <button
         mat-icon-button
         matSuffix
@@ -19,8 +49,20 @@
       >
         <mat-icon>{{ hide() ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
+      @if (password.errors?.['required'] ) {
+      <mat-error> password is required </mat-error>
+      } @else if ( password.errors?.['minlength']) {
+      <mat-error> password must be at least 6 characters long </mat-error>
+      }
     </mat-form-field>
   </div>
-  <button mat-flat-button>login</button>
+  <button mat-flat-button type="submit">login</button>
   <button type="submit">register</button>
 </form>
+<!-- <button mat-flat-button (click)="login(loginForm, $event)" type="button">
+  login
+</button> -->
+<div>{{ loginForm.value | json }}</div>
+<div>{{ email.value }}</div>
+<div>{{ password }}</div>
+<div>{{ email.errors | json }}</div>
