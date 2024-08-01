@@ -6,5 +6,11 @@
   #inputRef
   (keyup)="onkeyUp(inputRef.value)"
 />
+<hr />
+<div>
+  <button type="button" (click)="changeLanguage('ar')">Arabic</button>
+  <button type="button" (click)="changeLanguage('en')">English</button>
+</div>
+
 <!-- <app-projects-list></app-projects-list> -->
 <router-outlet />

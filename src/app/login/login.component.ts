@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,7 +11,6 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     MatInputModule,
     MatButtonModule,
-    FormsModule,
     MatFormFieldModule,
     MatIconModule,
     SharedModule,
