@@ -12,6 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideAnimationsAsync(),
     importProvidersFrom(HttpClientModule),
-    importProvidersFrom(AppTranslateModule),
+    importProvidersFrom(AppTranslateModule.forRoot()),
   ],
 };
