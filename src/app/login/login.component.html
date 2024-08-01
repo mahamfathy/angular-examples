@@ -1,7 +1,7 @@
 <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
   <div class="example-container" style="margin-top: 70px">
     <mat-form-field class="email-control">
-      <mat-label>Enter your email</mat-label>
+      <mat-label>{{ "email" | translate }}</mat-label>
       <input
         matInput
         placeholder="pat@example.com"
@@ -30,7 +30,7 @@
   } -->
   <div class="example-container" style="margin: 50px 0">
     <mat-form-field appearance="fill">
-      <mat-label>Enter your password</mat-label>
+      <mat-label>{{ "password" | translate }}</mat-label>
       <input
         matInput
         [type]="hide() ? 'password' : 'text'"
@@ -56,8 +56,8 @@
       }
     </mat-form-field>
   </div>
-  <button mat-flat-button type="submit">login</button>
-  <button type="submit">register</button>
+  <button mat-flat-button type="submit">{{ "login" | translate }}</button>
+  <button type="submit">{{ "register" | translate }}</button>
 </form>
 <!-- <button mat-flat-button (click)="login(loginForm, $event)" type="button">
   login
