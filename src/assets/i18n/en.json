@@ -1,5 +1,6 @@
 {
   "validation": {
     "requiredMessage": "this field is required"
-  }
+  },
+  "notValid": "Email is not valid"
 }

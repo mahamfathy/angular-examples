@@ -1,5 +1,6 @@
 {
   "validation": {
     "requiredMessage": "هذا الحقل مطلوب"
-  }
+  },
+  "notValid": "البريد الإلكتروني غير صالح"
 }

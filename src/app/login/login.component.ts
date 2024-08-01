@@ -1,11 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '../shared/shared.module';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -15,8 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     MatFormFieldModule,
     MatIconModule,
-    TranslateModule,
-    CommonModule,
+    SharedModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.sass',
