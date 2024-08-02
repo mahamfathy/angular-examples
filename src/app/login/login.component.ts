@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
   styleUrl: './login.component.sass',
 })
 export class LoginComponent {
+  constructor(private router: Router) {}
   hide = signal(true);
   password!: number;
   clickEvent(event: MouseEvent) {
@@ -34,5 +36,8 @@ export class LoginComponent {
   }
   onEmailChange(email: string): void {
     console.log('email', email);
+  }
+  register(): void {
+    this.router.navigate(['register']);
   }
 }
