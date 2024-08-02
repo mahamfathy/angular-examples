@@ -1,1 +1,92 @@
-<p>register works!</p>
+<div class="login-container">
+  <div class="login-content">
+    <mat-toolbar class="login-toolbar" color="primary">REGISTER</mat-toolbar>
+    <mat-card>
+      <br />
+      <br />
+      <form [formGroup]="form">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+
+          <input
+            autofocus
+            formControlName="email"
+            type="email"
+            matInput
+            required
+          />
+          <mat-error> </mat-error>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-icon matSuffix>user name</mat-icon>
+          <mat-label>Username</mat-label>
+
+          <input autofocus type="text" matInput [formControl]="userName" />
+
+          <mat-error> </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Mobile</mat-label>
+
+          <mat-icon matSuffix>mobile</mat-icon>
+          <input autofocus type="text" matInput formControlName="mobile" />
+          <mat-error> </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+
+          <input formControlName="password" type="password" matInput />
+
+          <mat-hint
+            >Choose a password of at least eight characters, one uppercase
+            letter and one number</mat-hint
+          >
+
+          <mat-error> </mat-error>
+          <mat-icon matSuffix>password</mat-icon>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <br />
+        <br />
+
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+
+          <input type="password" matInput formControlName="confirmPassword" />
+
+          <mat-error> </mat-error>
+          <mat-icon matSuffix>password</mat-icon>
+        </mat-form-field>
+        <br />
+
+        <br />
+        <div class="socialMediaFlex">
+          <button
+            style="width: 50%; margin-top: 20px; background-color: red"
+            type="submit"
+            mat-raised-button
+            color="primary"
+          >
+            Submit
+          </button>
+          <br />
+          <button
+            style="width: 50%; margin-top: 20px; background-color: blue"
+            type="button"
+            mat-raised-button
+            color="primary"
+            (click)="reset()"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
+<div>{{ form.value | json }}</div>
