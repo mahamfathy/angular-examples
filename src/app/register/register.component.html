@@ -15,8 +15,16 @@
             matInput
             required
           />
-          <mat-error> </mat-error>
-          <mat-icon matSuffix>email</mat-icon>
+          @if (form.get('email')?.hasError('required') ) {
+          <mat-error>
+            {{ "validation.requiredMessage" | translate }}
+          </mat-error>
+          }@if (form.get('email')?.hasError('email') ) {
+          <mat-error>
+            {{ "notValid" | translate }}
+          </mat-error>
+          }
+          <mat-icon matSuffix>{{ "email" | translate }}</mat-icon>
         </mat-form-field>
         <br />
         <mat-form-field>
@@ -24,46 +32,75 @@
           <mat-label>Username</mat-label>
 
           <input autofocus type="text" matInput formControlName="userName" />
+          @if (userNameRequiredError ) {
+          <mat-error>
+            {{ "validation.requiredMessage" | translate }}
+          </mat-error>
 
-          <mat-error> </mat-error>
+          }
         </mat-form-field>
+        <br />
         <mat-form-field>
           <mat-label>Mobile</mat-label>
 
           <mat-icon matSuffix>mobile</mat-icon>
-          <input autofocus type="text" matInput formControlName="mobile" />
-          <mat-error> </mat-error>
+          <input autofocus type="number" matInput formControlName="mobile" />
+          @if (form.get('mobile')?.hasError('required') ) {
+          <mat-error>
+            {{ "validation.requiredMessage" | translate }}
+          </mat-error>
+
+          }
         </mat-form-field>
         <br />
         <mat-form-field>
-          <mat-label>Password</mat-label>
+          <mat-label>{{ "password" | translate }}</mat-label>
 
           <input formControlName="password" type="password" matInput />
 
-          <mat-hint
+          <!-- <mat-hint
             >Choose a password of at least eight characters, one uppercase
             letter and one number</mat-hint
-          >
+          > -->
+          @if (form.get('password')?.hasError('required') ) {
+          <mat-error>
+            {{ "validation.requiredMessage" | translate }}
+          </mat-error>
 
-          <mat-error> </mat-error>
+          } @if (form.get('password')?.hasError('minlength') ) {
+          <mat-error>
+            {{ "minLength" | translate }}
+          </mat-error>
+
+          }
           <mat-icon matSuffix>password</mat-icon>
         </mat-form-field>
-        <br />
-        <br />
-
         <br />
         <br />
 
         <mat-form-field>
           <mat-label>Confirm Password</mat-label>
-
           <input type="password" matInput formControlName="confirmPassword" />
+          @if (form.get('confirmPassword')?.hasError('required') ) {
+          <mat-error>
+            {{ "validation.requiredMessage" | translate }}
+          </mat-error>
 
-          <mat-error> </mat-error>
+          } @if (form.get('confirmPassword')?.hasError('minlength') ) {
+          <mat-error>
+            {{ "minLength" | translate }}
+          </mat-error>
+
+          } @if (form.get('confirmPassword')?.hasError('mustMatch') ) {
+          <mat-error>
+            {{ "mustMatch" | translate }}
+          </mat-error>
+
+          }
           <mat-icon matSuffix>password</mat-icon>
         </mat-form-field>
         <br />
-
+        <br />
         <br />
         <div class="socialMediaFlex">
           <button
@@ -90,3 +127,4 @@
   </div>
 </div>
 <div>{{ form.value | json }}</div>
+<div>{{ form.get("confirmPassword")?.errors | json }}</div>

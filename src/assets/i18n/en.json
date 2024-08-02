@@ -2,9 +2,11 @@
   "validation": {
     "requiredMessage": "this field is required"
   },
-  "notValid": "Email is not valid",
+  "notValid": "This Field is not valid",
   "email": "Enter Your Email",
   "password": "Enter Your Password",
   "login": "Login",
-  "register": "Register"
+  "register": "Register",
+  "mustMatch": "Passwords must match",
+  "minLength": "Minimum length is 8 characters"
 }
